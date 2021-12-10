@@ -5,10 +5,10 @@ from datetime import datetime
 import Figure
 
 #key from twiter app
-api_key = "daCs6GBNjuMO0YQx6kKFpKjtV"
-api_secret_key = 'SuIUtn1YgIlBcr1AR9Ew5LR61CfIAuJWw0pyJE1K66ktrv5hGR'
-access_token = '1866544818-q1QuDE57nZwFGHKGvNKYtdG44JvsMCIAg0RicXN'
-access_token_secret ='lFXmd28M8JMsOjCTKiqwfPYD3lVuL9u4WJDHRIf9gMG1Z'
+api_key = ""
+api_secret_key = ''
+access_token = ''
+access_token_secret =''
 
 #access API
 auth = tweepy.OAuthHandler(api_key, api_secret_key)
