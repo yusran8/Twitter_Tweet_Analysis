@@ -5,10 +5,10 @@ from datetime import datetime
 import Figure
 
 #key from twiter app
-api_key = ""
-api_secret_key = ''
-access_token = ''
-access_token_secret =''
+api_key = "daCs6GBNjuMO0YQx6kKFpKjtV"
+api_secret_key = 'SuIUtn1YgIlBcr1AR9Ew5LR61CfIAuJWw0pyJE1K66ktrv5hGR'
+access_token = '1866544818-q1QuDE57nZwFGHKGvNKYtdG44JvsMCIAg0RicXN'
+access_token_secret ='lFXmd28M8JMsOjCTKiqwfPYD3lVuL9u4WJDHRIf9gMG1Z'
 
 #access API
 auth = tweepy.OAuthHandler(api_key, api_secret_key)
@@ -16,22 +16,20 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth, wait_on_rate_limit=True)
 
 #check if date is the same date
-def same_date(d1, d2):
+def same_date(d1, since):
     d1 = datetime.strptime(d1, "%Y-%m-%d")
-    d2 = datetime.strptime(d2, "%Y-%m-%d")
-    diff = abs((d2 - d1).days)
-    if diff > 0:
-        return False
-    else:
+    since = datetime.strptime(since, "%Y-%m-%d")
+    diff = (d1 - since).days
+    if diff == -1:
         return True
+    else:
+        return False
     
-
-#hasilUser = api.user_timeline(id="jokowi", count=10000)
-#tweets = tweepy.Cursor(api.user_timeline, id="jokowi", until='2021-11-01').items()
+user = input("twitter username : @")
 
 output = []
-since = '2021-12-01'
-for tweet in tweepy.Cursor(api.user_timeline, id="jokowi", tweet_mode="extended").items():
+since = input('show tweets from? YYYY-MM-DD until now:')
+for tweet in tweepy.Cursor(api.user_timeline, id=user, tweet_mode="extended").items():
     text = tweet.full_text
     created_at = tweet.created_at
     if same_date(created_at.strftime("%Y-%m-%d"), since):
@@ -41,7 +39,7 @@ for tweet in tweepy.Cursor(api.user_timeline, id="jokowi", tweet_mode="extended"
 
 df = pd.DataFrame(output)
 #df.to_csv('output.csv')
-user = 'jokowi'
+
 Figure.create_bar(df, user)
 
 # for tweet in hasilUser:

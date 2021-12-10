@@ -8,6 +8,7 @@ def create_bar(dataFrame, user):
  
     x=df['created_at']
     y=df['tweets']
+    z = y
 
     
     figx = plt.figure(figsize=(50,5))
@@ -15,7 +16,8 @@ def create_bar(dataFrame, user):
     figx.suptitle('Persebaran Tweet @' + user, fontsize=20)
     plt.xlabel('Tanggal', fontsize=14)
     plt.ylabel('Jumlah Tweet', fontsize=14)
-    
+    for index, value in enumerate(z):
+        plt.text(index, y[index], str(value))
     # Show Plot
     plt.show()
 
