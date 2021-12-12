@@ -8,10 +8,10 @@ class API(object):
 
     def __init__(self, username, date):
     #key from twiter app
-        self.api_key = "daCs6GBNjuMO0YQx6kKFpKjtV"
-        self.api_secret_key = 'SuIUtn1YgIlBcr1AR9Ew5LR61CfIAuJWw0pyJE1K66ktrv5hGR'
-        self.access_token = '1866544818-q1QuDE57nZwFGHKGvNKYtdG44JvsMCIAg0RicXN'
-        self.access_token_secret ='lFXmd28M8JMsOjCTKiqwfPYD3lVuL9u4WJDHRIf9gMG1Z'
+        self.api_key = ""
+        self.api_secret_key = ''
+        self.access_token = ''
+        self.access_token_secret =''
 
         #access API
         self.auth = tweepy.OAuthHandler(self.api_key, self.api_secret_key)
